@@ -1,29 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
-
-// Class component
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div>
-        <h1>HELLO WORLD</h1>
-      </div>
-    );
-  }
-}
-
-/* 
-// functional component
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import Post from "./Components/Post/post";
 const App = () => {
+  useEffect(() => {
+    document.title = "Geek books";
+  });
   return (
     <div>
-      <h1>HELLO WORLD</h1>
+      <Post />
     </div>
   );
 };
 export default App;
-*/
