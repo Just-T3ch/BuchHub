@@ -14,20 +14,21 @@ const Post = (props) => {
     thumpsUp: 0,
     comment: "",
   });
-  const [user,setUser] = useState({
-    userId : null,
-    username : '',
-    email : '',
-    password : '',
-    phone : '',
-    role_id : null
+  //Setting the user state which contains the user information
+  const [user, setUser] = useState({
+    userId: null,
+    username: "",
+    email: "",
+    password: "",
+    phone: "",
+    role_id: null,
   });
   return (
     <div className="post">
       <Profilepic {...post} setPost={setPost} />
       <Userinfo {...user} setUser={setUser} />
       <Comment {...post} setPost={setPost} />
-      <Activity {...post} setPost={setPost}/>
+      <Activity {...post} setPost={setPost} />
       <Addcomment {...post} setPost={setPost} />
     </div>
   );

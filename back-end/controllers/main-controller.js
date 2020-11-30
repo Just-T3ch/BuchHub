@@ -5,7 +5,6 @@ const getUser = require("../Models/User/userInfo");
 const register = signUp;
 //Login
 const logIn = signIn;
-// const userInformation = getUser;
 const home = (req, res) => {
   res.json("Welcome To Your Place");
 };
@@ -13,5 +12,5 @@ module.exports = {
   logIn,
   register,
   home,
-  getUser
+  getUser,
 };
