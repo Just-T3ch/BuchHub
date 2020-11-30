@@ -23,7 +23,10 @@ const signIn = (req, res) => {
           if (output) {
             payloads = {
               email: result[0].email,
+              user_id:result[0].user_id,
+              username : result[0].username,
               permissions: result[0].type,
+            
             };
             options = {
               expiresIn: process.env.TOKEN_EXPIRATION,

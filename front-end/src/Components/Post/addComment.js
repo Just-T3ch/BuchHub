@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const Addcomment = (props) => {
-  
-  console.log(props);
-  const post = props.post
-  const setPost = props.setPost 
+  const { userId, postId, post, thumpsUp, comment, setPost } = props;
   //Function for handling the input change and setting the state to the input value
   const handleChange = (e) => {
-    setPost({comment: e.target.value });
+    setPost({ comment: e.target.value });
   };
   //Function for creating the comment in the database
   const createComment = () => {
-    const comment = props.comment
-    console.log(comment)
+    if(!comment){
+      return 'Please add a comment'
+    }
+    const comment = comment;
+    console.log(comment);
     axios
       .post("http://localhost:5000/comments", { comment })
       .then((response) => {
