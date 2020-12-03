@@ -1,6 +1,9 @@
 body{
     background: rgb(239, 255, 217);
 }
+.app{
+    display: flex;
+}
 .post{
     /* display: inline-grid;
     grid-template-columns: auto auto auto ;
@@ -19,6 +22,9 @@ body{
     overflow-y: unset; */
     
 }
+
+
+
 ::-webkit-scrollbar{
     width: 10px;
 }

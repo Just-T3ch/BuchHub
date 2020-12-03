@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Profilepic from "./profilePic";
-import Addcomment from "./addComment";
-import Userinfo from "./user";
-import Activity from "./activity";
-import Comment from "./comment";
+import Deletepost from "./deletePost";
 const Post = (props) => {
+  const { decodedToken, setDecodedToken } = [props.decodedToken, props.setDecodedToken];
   //The state contains the columns of the post table
   const [post, setPost] = useState({
     user_id: null,
@@ -16,20 +12,27 @@ const Post = (props) => {
   });
   //Setting the user state which contains the user information
   const [user, setUser] = useState({
-    userId: null,
+    user_id: null,
     username: "",
     email: "",
-    password: "",
-    phone: "",
-    role_id: null,
   });
+  setUser({
+    ...user,
+    user_id : decoded.user_id,
+    username : decoded.username,
+    email : decoded.email
+  })
+  setPost({
+    ...post,
+    post_id,
+    post,
+    thumpsUp,
+    comment
+  })
   return (
     <div className="post">
-      <Profilepic {...post} setPost={setPost} />
-      <Userinfo {...user} setUser={setUser} />
-      <Comment {...post} setPost={setPost} />
-      <Activity {...post} setPost={setPost} />
-      <Addcomment {...post} setPost={setPost} />
+      <h3>{post}</h3>
+      <Deletepost {...post} setPost={setPost} />
     </div>
   );
 };
