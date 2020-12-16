@@ -6,17 +6,15 @@ import PostLike from "./PostLike";
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import "./Post.css";
-import EditPostMode from "./EditPostMode";
 
 const Post = (props) => {
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
 
   // postAttr is the props that is set from the Posts component and contains every post as an element
-  const postAttr = props.postElement;
-
-  const getUserPosts = props.getUserPosts;
-
+  const { getUserPosts, setGetPosts} = props;
+  const postAttr = props.postElement
+ 
   // State hook for editing the post
   const [editPostMode, setEditPostMode] = useState(false);
 
@@ -46,11 +44,11 @@ const Post = (props) => {
 
   useEffect(() => {
     getPostComments();
-  }, []);
+  }, [renderComments]);
 
   // Map method on the state hook which contains the comments of the post (By post_id) comment information is passed to the Comment component
   const renderPostComments = commentsArray.map((elem, i) => {
-    return <Comment comment={elem} postAttr={postAttr} />;
+    return <Comment comment={elem} postAttr={postAttr} key={i+1}/>;
   });
 
   return (
@@ -99,13 +97,15 @@ const Post = (props) => {
             </svg>
             
             {/* Delete the post component */}
-            <DeletePost postAttr={postAttr} getUserPosts={getUserPosts} />
+            <DeletePost postAttr={postAttr} getUserPosts={getUserPosts} setGetPosts={setGetPosts} />
           </div>
         </div>{" "}
         <div className="p-2">
           {editPostMode ? (
             <UpdatePost
               postAttr={postAttr}
+              setEditPostMode={setEditPostMode}
+              setGetPosts={setGetPosts}
             />
           ) : (
             <p className="text-justify">{postAttr.post}</p>

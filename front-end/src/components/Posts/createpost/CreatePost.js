@@ -27,7 +27,7 @@ const CreatePost = () => {
   };
   
   return (
-    <div
+    <div 
     className="col-md-offset-3 col-md-12 col-xs-12 pr-1"
     style={{ borderRadius: "15px", paddingLeft: "45px" }}
   >
