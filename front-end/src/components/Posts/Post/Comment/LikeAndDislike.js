@@ -54,7 +54,7 @@ const CommentLike = (props) => {
   }
   useEffect(() => {
     getCommentLikes()
-  },[])
+  },[likedComment])
   return (
     <div>
       <span style={{ cursor: "pointer" }}>

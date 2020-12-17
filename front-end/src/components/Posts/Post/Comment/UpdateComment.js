@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 
-const UpdatePost = (props) => {
+const UpdateComment = (props) => {
+  const { postAttr, commentElement, editcomment, setEditComment } = props;
   const token = localStorage.getItem("token");
-  const decoded = jwt_decode(token);
-  const { postAttr, setEditPostMode, setGetPosts } = props;
 
-  // State hook for updating the post
-  const [post, setPost] = useState(postAttr.post);
+  // State hook for rendering the comment while in the edit mode
+  const [commentState, setCommentState] = useState(commentElement.comment);
 
-  const updatePost = () => {
+  const updateComment = () => {
     axios
       .put(
-        `http://localhost:5000/post/${postAttr.post_id}`,
-        { post },
+        `http://localhost:5000/comment/${commentElement.comment_id}`,
+        {comment : commentState},
         {
           headers: { Authorization: `Basic ${token}` },
         }
@@ -26,6 +25,7 @@ const UpdatePost = (props) => {
         throw err;
       });
   };
+
   return (
     <div>
       <div
@@ -35,17 +35,17 @@ const UpdatePost = (props) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            updatePost();
-            setEditPostMode(false);
-            setGetPosts(true);
+            updateComment();
+            setEditComment(false)
+            setCommentState()
           }}
         >
           <textarea
             className="form-control shadow-none"
             style={{ borderRadius: "15px" }}
-            value={post}
+            value={commentState}
             onChange={(e) => {
-              setPost(e.target.value);
+              setCommentState(e.target.value);
             }}
           ></textarea>
           <div
@@ -67,4 +67,4 @@ const UpdatePost = (props) => {
   );
 };
 
-export default UpdatePost;
+export default UpdateComment;

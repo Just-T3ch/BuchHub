@@ -1,16 +1,15 @@
 import React from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 
-const DeletePost = (props) => {
+const DeleteComment = (props) => {
+  const { postAttr, comment } = props;
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
-
-  const { postAttr, getPosts, setGetPosts, getUserPosts } = props;
-
-  const deletePost = () => {
+  const userData = decoded.username;
+  const deleteComment = () => {
     axios
-      .delete(`http://localhost:5000/post/${postAttr.post_id}`, {
+      .delete(`http://localhost:5000/comment/${postAttr.post_id}`, {
         headers: { Authorization: `Basic ${token}` },
       })
       .then((response) => {
@@ -30,7 +29,7 @@ const DeletePost = (props) => {
         class="bi bi-x-circle"
         viewBox="0 0 16 16"
         style={{ cursor: "pointer" }}
-        onClick={deletePost}
+        onClick={deleteComment}
       >
         <path
           fillRule="evenodd"
@@ -45,4 +44,4 @@ const DeletePost = (props) => {
   );
 };
 
-export default DeletePost;
+export default DeleteComment;
