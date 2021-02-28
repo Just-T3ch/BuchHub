@@ -17,7 +17,7 @@ connect, communicate, and exchange their experiences.
 - MySQL
 - NodeJs, Express
 - React-Hooks
-- CSS,Bootstrap, SASS
+- CSS, Bootstrap, SASS
 - Socket IO, Google API 
 
  ## Start with the app
