@@ -14,8 +14,10 @@ connect, communicate, and exchange their experiences.
 - Other features similar to Twitter and Goodreads
 
  ## Technologies used
-- MySQL, NodeJs, and Express on the backend
-- Bootstrap and React Hooks on the frontend
+- MySQL
+- NodeJs, Express
+- React-Hooks
+- CSS,Bootstrap, SASS
 - Socket IO, Google API 
 
  ## Start with the app
