@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import './App.css'
 import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/Profile.jsx";
 import Setting from "./components/Setting/Setting";
 import Login from "./components/Entry/Login";
 import Library from "./components/library/Library";
@@ -23,7 +24,7 @@ const App = () => {
     </Router>
   ) : (
     <Router>
-      <Route path="/" exact component={Login} />
+        <Route path="/" exact component={Login} />
     </Router>
   );
 };

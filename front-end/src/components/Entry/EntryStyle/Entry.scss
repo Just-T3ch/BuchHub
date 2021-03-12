@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-small {
-    font-size: 10px;
-    color: red;
-    display: flex;
-    align-self: flex-start;
-    margin-bottom: 0;
-}
-
-.labelShow {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.labelHiding {
-    opacity: 0;
-    transform: translateY(2rem);
+.created-success {
+    position: absolute;
+    width: 80%;
+    margin: 0 12%;
+    margin-top: 2px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    padding: .75rem 1.25rem;
+    color: #155724;
+    background-color: #b2f7c2;
+    border-color: #6cff8e;
 }
 
 .btn {
@@ -40,6 +38,18 @@ small {
         background-color: transparent;
         border-color: #FFFFFF;
     }
+    &--disabled {
+        border-radius: 20px;
+        border: 1px solid #252525;
+        color: #FFFFFF;
+        background-color: rgba(128, 128, 128, 0.623);
+        cursor: not-allowed;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 4% 18%;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 }
 
 .container {
@@ -51,6 +61,7 @@ small {
     width: 80%;
     max-width: 100%;
     min-height: 480px;
+    margin-top: 4%;
     & h1 {
         font-weight: bold;
         margin: 0;
@@ -74,12 +85,16 @@ small {
                 border: none;
                 padding: 2px 8px;
                 width: 100%;
+                border-radius: 10px;
+                outline: none;
             }
             &>input {
                 background-color: #eee;
                 border: none;
                 padding: 2px 8px;
                 width: 100%;
+                border-radius: 10px;
+                outline: none;
             }
             &>div {
                 display: flex;
@@ -92,6 +107,21 @@ small {
             }
             & span {
                 font-size: 12px;
+            }
+            small {
+                font-size: 10px;
+                color: red;
+                display: flex;
+                align-self: flex-start;
+                margin-bottom: 0;
+            }
+            .labelShow {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .labelHiding {
+                opacity: 0;
+                transform: translateY(2rem);
             }
         }
     }
@@ -216,4 +246,18 @@ input:focus::placeholder {
     right: 5px;
     width: 24px;
     height: 24px;
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
